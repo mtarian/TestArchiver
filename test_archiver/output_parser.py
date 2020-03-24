@@ -3,7 +3,7 @@ import os.path
 import sys
 import xml.sax
 
-from archiver import Archiver, read_config_file, ARCHIVED_LOG_LEVELS, database_connection
+from test_archiver.archiver import Archiver, read_config_file, ARCHIVED_LOG_LEVELS, database_connection
 
 DEFAULT_SUITE_NAME = 'Unnamed suite'
 
@@ -675,7 +675,7 @@ def parse_metadata_args(metadata_args):
     return metadata
 
 
-if __name__ == '__main__':
+def main():
     if sys.version_info[0] < 3:
         sys.exit('Unsupported Python version (' + str(sys.version_info.major) + '). Please use version 3.')
     parser = argparse.ArgumentParser(description='Parse Robot Framework output.xml files to SQL database.')
@@ -737,3 +737,6 @@ if __name__ == '__main__':
     for output_file in args.output_files:
         print("Parsing: '{}'".format(output_file))
         parse_xml(output_file, args.format, connection, config)
+
+if __name__ == '__main__':
+    main()

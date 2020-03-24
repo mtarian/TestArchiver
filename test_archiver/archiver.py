@@ -2,8 +2,8 @@ import json
 from hashlib import sha1
 from datetime import datetime
 
-from database import PostgresqlDatabase, SQLiteDatabase
-from archiver_listeners import ChangeEngineListener
+from test_archiver.database import PostgresqlDatabase, SQLiteDatabase
+from test_archiver.archiver_listeners import ChangeEngineListener
 
 ARCHIVER_VERSION = "1.1.1"
 
